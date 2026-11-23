@@ -1,0 +1,36 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://softapp.giantcomm.com/app/dashboard');
+  await page.goto('https://softapp.giantcomm.com/app/home');
+  await page.getByRole('textbox', { name: 'Username' }).fill('100@204701271');
+  await page.getByRole('textbox', { name: 'Password' }).click();
+  await page.getByRole('textbox', { name: 'Password' }).fill('1234');
+  await page.getByRole('button', { name: 'Login' }).click();
+  await page.getByRole('link', { name: 'Chat' }).click();
+  await page.getByRole('button', { name: 'v vishnu' }).click();
+  await page.locator('.ql-editor').fill('fasdfas');
+  await page.getByRole('button', { name: 'bold' }).click();
+  await page.locator('.ql-editor').fill('fasdf');
+  await page.getByRole('button', { name: 'italic' }).click();
+  await page.locator('.ql-editor').fill('dfasdf');
+  await page.getByRole('button', { name: 'underline' }).click();
+  await page.locator('.ql-editor').fill('hgjhgkjh');
+  await page.getByRole('button', { name: 'strike' }).click();
+  await page.locator('.ql-editor').fill('nbvnbvnbvmn');
+  await page.locator('.ql-picker-label').first().click();
+  await page.locator('#ql-picker-options-0 > span:nth-child(2)').click();
+  await page.locator('.ql-editor').fill('mjhjhjk');
+  await page.locator('.ql-background > .ql-picker-label').click();
+  await page.locator('#ql-picker-options-1 > span:nth-child(18)').click();
+  await page.locator('.ql-editor').fill('jgjhgjhn');
+  await page.getByRole('button', { name: 'list: ordered' }).click();
+  await page.locator('.ql-editor').fill('jhkjhkj\nhfjhgjkh\njkhkjhkl');
+  await page.locator('.ql-background > .ql-picker-label').click();
+  await page.locator('#ql-picker-options-1').click();
+  await page.locator('#ql-picker-options-1').click();
+  await page.locator('#ql-picker-options-1 > span:nth-child(2)').click();
+  await page.locator('.ql-editor').fill('jhkjhkj');
+  await page.getByRole('button', { name: 'list: ordered' }).click();
+  await page.locator('.ql-editor').fill('kjghkjhkjhk');
+});

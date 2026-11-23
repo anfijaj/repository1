@@ -1,0 +1,12 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="4.383063000000082">
+<testsuite name="PartAssign5\readexcel.spec.js" timestamp="2026-11-22T05:09:05.493Z" hostname="" tests="1" failures="0" skipped="0" time="0.548" errors="0">
+<testcase name="Read login data from Excel" classname="PartAssign5\readexcel.spec.js" time="0.548">
+<system-out>
+<![CDATA[Name :Anu,Age :25,City :Kannur
+Name :Manu,Age :35,City :Thrissur
+Name :Sanu,Age :15,City :Kochi
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

@@ -1,0 +1,16 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Module3Assign\bankManger.spec.js >> Bank Manager - Add Customer, Open Account, Search and Delete
+- Location: tests\Module3Assign\bankManger.spec.js:5:1
+
+# Error details
+
+```
+Test timeout of 40000ms exceeded.
+```

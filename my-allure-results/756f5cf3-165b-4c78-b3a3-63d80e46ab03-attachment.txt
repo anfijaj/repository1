@@ -1,0 +1,7 @@
+Bank Manager Login Successful
+Bank Account Opened Successfully
+Customer Details:
+John	QA1794638509314	682001		Delete
+Customer Search Validation Successful
+Customer Deleted Successfully
+Deletion Verification Passed

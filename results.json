@@ -1,0 +1,175 @@
+{
+  "config": {
+    "argv": [],
+    "configFile": "C:\\Playwright\\playwright.config.js",
+    "rootDir": "C:/Playwright/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "C:/Playwright/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 40000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Playwright\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "C:\\Playwright\\tests",
+        "snapshotDir": "C:\\Playwright\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 40000,
+        "use": {
+          "browserName": "chromium",
+          "headless": false,
+          "launchOptions": {
+            "slowMo": 1000
+          },
+          "trace": "off",
+          "video": "off",
+          "_optionContextReuseMode": "when-possible",
+          "_optionConnectOptions": {
+            "wsEndpoint": "ws://127.0.0.1:54484/3b89f2a9f5483131272ad42b6f0176c1"
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        null
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "results.xml"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "results.json"
+        }
+      ],
+      [
+        "C:\\Playwright\\node_modules\\allure-playwright\\dist\\cjs\\index.js",
+        {
+          "resultsDir": "my-allure-results"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "3way",
+    "version": "1.65.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "PartAssign5\\readexcel.spec.js",
+      "file": "PartAssign5/readexcel.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Read login data from Excel",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 40000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 548,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "Name :Anu,Age :25,City :Kannur\n"
+                    },
+                    {
+                      "text": "Name :Manu,Age :35,City :Thrissur\n"
+                    },
+                    {
+                      "text": "Name :Sanu,Age :15,City :Kochi\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T05:09:07.201Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0d42190109859d47e05c-48690890e9e0db707321",
+          "file": "PartAssign5/readexcel.spec.js",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-22T05:09:03.857Z",
+    "duration": 4383.063000000082,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

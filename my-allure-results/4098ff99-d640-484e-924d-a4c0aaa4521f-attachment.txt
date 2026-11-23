@@ -1,0 +1,8 @@
+Bank Manager Login Successful
+Bank Account Opened Successfully
+Bank Account Opened Successfully
+Customer Details:
+John	george	682001	1016	Delete
+Customer Search Validation Successful
+Customer Deleted Successfully
+Deletion Verification Passed

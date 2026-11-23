@@ -1,0 +1,27 @@
+[
+  {
+    "FirstName": "First1",
+    "LastName": "Last1",
+    "EmailAddress": "test1@tsst.com",
+    "Age": "25",
+    "Salary": "32693",
+    "Depart": "Eng"
+  },
+  
+  {
+    "FirstName": "anu",
+    "LastName": "krish",
+    "EmailAddress": "ami@tsst.com",
+    "Age": "22",
+    "Salary": "1132693",
+    "Depart": "science"
+  },
+  
+  {
+    "FirstName": "ammu",
+    "LastName": "prakash",
+    "EmailAddress": "sanoop@test.com",
+    "Age": "12",
+    "Salary": "3232",
+    "Depart": "social"
+  }]

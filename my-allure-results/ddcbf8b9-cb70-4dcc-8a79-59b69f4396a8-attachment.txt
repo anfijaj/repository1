@@ -1,0 +1,3 @@
+Bank Manager Login Successful
+Bank Account Opened Successfully
+Open Account Alert: Account created successfully with account Number :1016

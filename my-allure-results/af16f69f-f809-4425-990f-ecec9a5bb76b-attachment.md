@@ -1,0 +1,40 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: POMtwo\pom2test.spec.js >> End to end
+- Location: tests\POMtwo\pom2test.spec.js:7:1
+
+# Error details
+
+```
+ReferenceError: Login is not defined
+```
+
+# Test source
+
+```ts
+  1  | 
+  2  | 
+  3  | const { test,expect } = require("@playwright/test");
+  4  | const login = require('./LoginPage.spec');
+  5  | 
+  6  | 
+  7  | test('End to end',async({page})=>{
+  8  |     
+  9  | const username = 'standard_user'
+  10 | const password ='secret_sauce'
+  11 | const productName='Sauce Labs Backpack'
+> 12 | const login =new Login(page)
+     |              ^ ReferenceError: Login is not defined
+  13 | await login.gotoNavigation();
+  14 | await login.validLogin(username,password);
+  15 | 
+  16 | 
+  17 | })
+  18 | 
+```

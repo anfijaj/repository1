@@ -1,0 +1,2 @@
+1. Bank Manager Login Successful
+Customer Details Entered

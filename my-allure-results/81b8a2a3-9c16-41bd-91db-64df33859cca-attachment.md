@@ -1,0 +1,165 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Module3Assign\bankManage.spec.js >> Bank Manager - Add Customer, Open Account, Search and Delete
+- Location: tests\Module3Assign\bankManage.spec.js:4:1
+
+# Error details
+
+```
+Test timeout of 90000ms exceeded.
+```
+
+```
+Error: page.waitForEvent: Test timeout of 90000ms exceeded.
+=========================== logs ===========================
+waiting for event "dialog"
+============================================================
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - button "Home" [ref=e5] [cursor=pointer]
+    - strong [ref=e6]: XYZ Bank
+  - generic [ref=e8]:
+    - generic [ref=e9]:
+      - button "Add Customer" [ref=e10] [cursor=pointer]
+      - button "Open Account" [ref=e12] [cursor=pointer]
+      - button "Customers" [ref=e13] [cursor=pointer]
+    - form [ref=e17]:
+      - generic [ref=e18]:
+        - generic [ref=e19]: "First Name :"
+        - textbox "First Name" [ref=e20]: John
+      - generic [ref=e21]:
+        - generic [ref=e22]: "Last Name :"
+        - textbox "Last Name" [ref=e23]: QA1794638054952
+      - generic [ref=e24]:
+        - generic [ref=e25]: "Post Code :"
+        - textbox "Post Code" [active] [ref=e26]: "682001"
+      - button "Add Customer" [ref=e27] [cursor=pointer]
+```
+
+# Test source
+
+```ts
+  1   | 
+  2   | import { test, expect } from '@playwright/test';
+  3   | 
+  4   | test('Bank Manager - Add Customer, Open Account, Search and Delete', async ({ page }) => {
+  5   | 
+  6   |     test.setTimeout(90000);
+  7   | 
+  8   |     // Test Data
+  9   |     const firstName = 'John';
+  10  |     const lastName = 'QA' + Date.now();
+  11  |     const postCode = '682001';
+  12  | 
+  13  |     // 1. Launch Application
+  14  |     await page.goto('https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login');
+  15  | 
+  16  |     // Bank Manager Login
+  17  |     await page.getByRole('button', { name: 'Bank Manager Login' }).click();
+  18  | 
+  19  |     // Verify Manager Dashboard
+  20  |     await expect(page.getByRole('button', { name: 'Add Customer' }).first()).toBeVisible();
+  21  |     await expect(page.getByRole('button', { name: 'Open Account' })).toBeVisible();
+  22  |     await expect(page.getByRole('button', { name: 'Customers' })).toBeVisible();
+  23  | 
+  24  |     console.log('1. Bank Manager Login Successful');
+  25  | 
+  26  | 
+  27  |     // 2. Add Customer
+  28  |     await page.getByRole('button', { name: 'Add Customer' }).first().click();
+  29  | 
+  30  |     // Enter Customer Details
+  31  |     await page.locator('input[ng-model="fName"]').fill(firstName);
+  32  |     await page.locator('input[ng-model="lName"]').fill(lastName);
+  33  |     await page.locator('input[ng-model="postCd"]').fill(postCode);
+  34  | 
+  35  |     // Handle Add Customer Alert
+> 36  |     const addAlertPromise = page.waitForEvent('dialog');
+      |                                  ^ Error: page.waitForEvent: Test timeout of 90000ms exceeded.
+  37  |     const addAlert = await addAlertPromise;
+  38  | 
+  39  |     console.log('2. Add Customer Alert:', addAlert.message());
+  40  | 
+  41  |     await addAlert.accept();
+  42  | 
+  43  |     await page.locator('button[type="submit"]').click();
+  44  | 
+  45  |     
+  46  | 
+  47  |     console.log('Customer Added Successfully');
+  48  | 
+  49  | 
+  50  |     // 3. Open Bank Account
+  51  |     await page.getByRole('button', { name: 'Open Account' }).click();
+  52  | 
+  53  |     // Select Newly Created Customer
+  54  |     await page.locator('select[ng-model="custId"]')
+  55  |         .selectOption({ label: `${firstName} ${lastName}` });
+  56  | 
+  57  |     // Select Dollar Currency
+  58  |     await page.locator('select[ng-model="currency"]')
+  59  |         .selectOption({ label: 'Dollar' });
+  60  | 
+  61  |     // Handle Open Account Alert
+  62  |     const accountAlertPromise = page.waitForEvent('dialog');
+  63  | 
+  64  |     await page.locator('form:visible button[type="submit"]').click();
+  65  | 
+  66  |     const accountAlert = await accountAlertPromise;
+  67  | 
+  68  |     console.log('3. Open Account Alert:', accountAlert.message());
+  69  | 
+  70  |     await accountAlert.accept();
+  71  | 
+  72  |     console.log('Bank Account Opened Successfully');
+  73  | 
+  74  | 
+  75  |     // 4. Search and Validate Customer
+  76  |     await page.getByRole('button', { name: 'Customers' }).click();
+  77  | 
+  78  |     // Search using Unique Last Name
+  79  |     const searchBox = page.locator('input[ng-model="searchCustomer"]');
+  80  | 
+  81  |     await searchBox.fill(lastName);
+  82  | 
+  83  |     // Locate Matching Customer
+  84  |     const customerRows = page.locator('table tbody tr')
+  85  |         .filter({ hasText: lastName });
+  86  | 
+  87  |     // Verify Exactly One Matching Record
+  88  |     await expect(customerRows).toHaveCount(1);
+  89  | 
+  90  |     // Print Customer Details
+  91  |     const customerDetails = await customerRows.first().innerText();
+  92  | 
+  93  |     console.log('4. Customer Details:');
+  94  |     console.log(customerDetails);
+  95  | 
+  96  |     console.log('Customer Search Validation Successful');
+  97  | 
+  98  | 
+  99  |     // 5. Delete Customer
+  100 |     await customerRows.first()
+  101 |         .getByRole('button', { name: 'Delete' }).click();
+  102 | 
+  103 |     // Verify Customer Deleted
+  104 |     await expect(customerRows).toHaveCount(0);
+  105 | 
+  106 |     console.log('5. Customer Deleted Successfully');
+  107 | 
+  108 |     console.log('Deletion Verification Passed');
+  109 | 
+  110 | });
+  111 | 
+```

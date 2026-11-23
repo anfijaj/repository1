@@ -1,0 +1,5 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","5236","case1","","2026-11-10","passed","2026-11-10","","Part4Assign\loginValidation.spec.js","",""
+"","6776","case4","","2026-11-10","passed","2026-11-10","","Part4Assign\loginValidation.spec.js","",""
+"","5674","case3 - Login with Password Only","","2026-11-10","passed","2026-11-10","","Part4Assign\loginValidation.spec.js","",""
+"","4957","case2 - Login with Email Only","","2026-11-10","passed","2026-11-10","","Part4Assign\loginValidation.spec.js","",""

@@ -1,0 +1,3 @@
+Broccoli added to cart successfully
+Product verified in shopping cart
+Order Confirmation: Thank you, your order has been placed successfully  You'll be redirected to Home page shortly!!
